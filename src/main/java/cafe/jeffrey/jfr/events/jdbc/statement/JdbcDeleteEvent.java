@@ -16,16 +16,20 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package pbouda.jeffrey.jfr.events.http;
+package cafe.jeffrey.jfr.events.jdbc.statement;
 
-import jdk.jfr.Description;
+import jdk.jfr.Category;
 import jdk.jfr.Label;
 import jdk.jfr.Name;
 
-@Name(HttpClientExchangeEvent.NAME)
-@Label("HTTP Client Exchange")
-@Description("Information about a single HTTP Client Request/Response Exchange")
-public class HttpClientExchangeEvent extends AbstractHttpExchangeEvent {
+@Name(JdbcDeleteEvent.NAME)
+@Label("JDBC Insert Statement")
+@Category({"Application", "JDBC"})
+public class JdbcDeleteEvent extends JdbcBaseEvent {
 
-    public static final String NAME = "jeffrey.HttpClientExchange";
+    public static final String NAME = "jeffrey.JdbcDelete";
+
+    public JdbcDeleteEvent(String name, String group) {
+        super(name, group);
+    }
 }

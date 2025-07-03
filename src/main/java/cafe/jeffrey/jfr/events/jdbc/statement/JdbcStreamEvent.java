@@ -16,17 +16,20 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package pbouda.jeffrey.jfr.events.jdbc.pool;
+package cafe.jeffrey.jfr.events.jdbc.statement;
 
 import jdk.jfr.Category;
-import jdk.jfr.Event;
 import jdk.jfr.Label;
-import jdk.jfr.StackTrace;
+import jdk.jfr.Name;
 
-@Category({"Application", "JDBC Pool"})
-@StackTrace(false)
-public abstract class JdbcPoolEvent extends Event {
+@Name(JdbcStreamEvent.NAME)
+@Label("JDBC Stream Statement")
+@Category({"Application", "JDBC"})
+public class JdbcStreamEvent extends JdbcQueryEvent {
 
-    @Label("Pool Name")
-    public String poolName;
+    public static final String NAME = "jeffrey.JdbcStream";
+
+    public JdbcStreamEvent(String name, String group) {
+        super(name, group);
+    }
 }

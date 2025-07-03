@@ -16,20 +16,21 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package pbouda.jeffrey.jfr.events.jdbc.statement;
+package cafe.jeffrey.jfr.events.jdbc.pool;
 
-import jdk.jfr.Category;
+import jdk.jfr.Description;
 import jdk.jfr.Label;
 import jdk.jfr.Name;
+import jdk.jfr.Timespan;
 
-@Name(JdbcDeleteEvent.NAME)
-@Label("JDBC Insert Statement")
-@Category({"Application", "JDBC"})
-public class JdbcDeleteEvent extends JdbcBaseEvent {
+@Name(PooledJdbcConnectionBorrowedEvent.NAME)
+@Label("Connection Borrowed")
+@Description("Duration of borrowing a connection from the pool")
+public class PooledJdbcConnectionBorrowedEvent extends JdbcPoolEvent {
 
-    public static final String NAME = "jeffrey.JdbcDelete";
+    public static final String NAME = "jeffrey.PooledJdbcConnectionBorrowed";
 
-    public JdbcDeleteEvent(String name, String group) {
-        super(name, group);
-    }
+    @Label("Borrow Time")
+    @Timespan()
+    public long elapsedTime;
 }

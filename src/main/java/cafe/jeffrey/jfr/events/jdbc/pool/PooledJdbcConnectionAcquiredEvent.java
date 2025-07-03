@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package pbouda.jeffrey.jfr.events.jdbc.pool;
+package cafe.jeffrey.jfr.events.jdbc.pool;
 
 import jdk.jfr.Description;
 import jdk.jfr.Label;

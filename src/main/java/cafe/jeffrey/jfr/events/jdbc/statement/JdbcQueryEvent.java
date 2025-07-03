@@ -16,37 +16,25 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package pbouda.jeffrey.jfr.events.jdbc.statement;
+package cafe.jeffrey.jfr.events.jdbc.statement;
 
+import jdk.jfr.Category;
 import jdk.jfr.Description;
-import jdk.jfr.Event;
 import jdk.jfr.Label;
+import jdk.jfr.Name;
 
-public abstract class JdbcBaseEvent extends Event {
+@Name(JdbcQueryEvent.NAME)
+@Label("JDBC Query Statement")
+@Category({"Application", "JDBC"})
+public class JdbcQueryEvent extends JdbcBaseEvent {
 
-    @Label("SQL Query")
-    @Description("The SQL statement executed by the JDBC statement")
-    public String sql;
+    public static final String NAME = "jeffrey.JdbcQuery";
 
-    @Label("SQL Parameters")
-    public String params;
+    @Label("Total Samples")
+    @Description("The total number of samples for this event (one row can represents multiple samples)")
+    public Long samples;
 
-    @Label("Statement Name")
-    public String name;
-
-    @Label("Label for Statement Grouping")
-    public String group;
-
-    @Label("Affected/Returned Rows")
-    @Description("The number of affected/returned rows")
-    public long rows;
-
-    @Label("Successful Execution")
-    @Description("SQL Statement ended up successfully")
-    public boolean isSuccess = true;
-
-    public JdbcBaseEvent(String name, String group) {
-        this.name = name;
-        this.group = group;
+    public JdbcQueryEvent(String name, String group) {
+        super(name, group);
     }
 }

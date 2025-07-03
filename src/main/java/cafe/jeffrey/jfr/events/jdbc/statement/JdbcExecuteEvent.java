@@ -16,21 +16,20 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package pbouda.jeffrey.jfr.events.jdbc.pool;
+package cafe.jeffrey.jfr.events.jdbc.statement;
 
-import jdk.jfr.Description;
+import jdk.jfr.Category;
 import jdk.jfr.Label;
 import jdk.jfr.Name;
-import jdk.jfr.Timespan;
 
-@Name(PooledJdbcConnectionCreatedEvent.NAME)
-@Label("Connection Created")
-@Description("Duration of creating a new connection in the pool")
-public class PooledJdbcConnectionCreatedEvent extends JdbcPoolEvent {
+@Name(JdbcExecuteEvent.NAME)
+@Label("JDBC Execute Statement")
+@Category({"Application", "JDBC"})
+public class JdbcExecuteEvent extends JdbcBaseEvent {
 
-    public static final String NAME = "jeffrey.PooledJdbcConnectionCreated";
+    public static final String NAME = "jeffrey.JdbcExecute";
 
-    @Label("Creation Time")
-    @Timespan()
-    public long elapsedTime;
+    public JdbcExecuteEvent(String name, String group) {
+        super(name, group);
+    }
 }

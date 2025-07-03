@@ -16,21 +16,26 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package pbouda.jeffrey.jfr.events.jdbc.pool;
+package cafe.jeffrey.jfr.events.jdbc.statement;
 
-import jdk.jfr.Description;
+import jdk.jfr.Category;
 import jdk.jfr.Label;
 import jdk.jfr.Name;
-import jdk.jfr.Timespan;
 
-@Name(PooledJdbcConnectionBorrowedEvent.NAME)
-@Label("Connection Borrowed")
-@Description("Duration of borrowing a connection from the pool")
-public class PooledJdbcConnectionBorrowedEvent extends JdbcPoolEvent {
+@Name(JdbcInsertEvent.NAME)
+@Label("JDBC Insert Statement")
+@Category({"Application", "JDBC"})
+public class JdbcInsertEvent extends JdbcBaseEvent {
 
-    public static final String NAME = "jeffrey.PooledJdbcConnectionBorrowed";
+    public static final String NAME = "jeffrey.JdbcInsert";
 
-    @Label("Borrow Time")
-    @Timespan()
-    public long elapsedTime;
+    @Label("Insert contains LOB parameter")
+    public boolean isLob;
+
+    @Label("Insert is a Batch Statement")
+    public boolean isBatch;
+
+    public JdbcInsertEvent(String name, String group) {
+        super(name, group);
+    }
 }

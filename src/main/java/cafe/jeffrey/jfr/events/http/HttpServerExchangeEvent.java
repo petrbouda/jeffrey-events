@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package pbouda.jeffrey.jfr.events.http;
+package cafe.jeffrey.jfr.events.http;
 
 import jdk.jfr.Description;
 import jdk.jfr.Label;

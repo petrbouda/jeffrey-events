@@ -16,16 +16,17 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package pbouda.jeffrey.jfr.events.jdbc.pool;
+package cafe.jeffrey.jfr.events.jdbc.pool;
 
-import jdk.jfr.Description;
+import jdk.jfr.Category;
+import jdk.jfr.Event;
 import jdk.jfr.Label;
-import jdk.jfr.Name;
+import jdk.jfr.StackTrace;
 
-@Name(AcquiringPooledJdbcConnectionTimeoutEvent.NAME)
-@Label("Acquiring Pooled Connection Timeout")
-@Description("Event triggered when acquiring of pooled connection times out")
-public class AcquiringPooledJdbcConnectionTimeoutEvent extends JdbcPoolEvent {
+@Category({"Application", "JDBC Pool"})
+@StackTrace(false)
+public abstract class JdbcPoolEvent extends Event {
 
-    public static final String NAME = "jeffrey.AcquiringPooledJdbcConnectionTimeout";
+    @Label("Pool Name")
+    public String poolName;
 }

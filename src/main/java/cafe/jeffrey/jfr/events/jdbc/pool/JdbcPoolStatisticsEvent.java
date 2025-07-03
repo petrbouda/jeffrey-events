@@ -16,25 +16,36 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package pbouda.jeffrey.jfr.events.jdbc.statement;
+package cafe.jeffrey.jfr.events.jdbc.pool;
 
-import jdk.jfr.Category;
 import jdk.jfr.Description;
 import jdk.jfr.Label;
 import jdk.jfr.Name;
+import jdk.jfr.Period;
 
-@Name(JdbcQueryEvent.NAME)
-@Label("JDBC Query Statement")
-@Category({"Application", "JDBC"})
-public class JdbcQueryEvent extends JdbcBaseEvent {
+@Name(JdbcPoolStatisticsEvent.NAME)
+@Label("Pool Statistics")
+@Period("1 s")
+@Description("Statistics of the connection pool")
+public class JdbcPoolStatisticsEvent extends JdbcPoolEvent {
 
-    public static final String NAME = "jeffrey.JdbcQuery";
+    public static final String NAME = "jeffrey.JdbcPoolStatistics";
 
-    @Label("Total Samples")
-    @Description("The total number of samples for this event (one row can represents multiple samples)")
-    public Long samples;
+    @Label("Total Connections")
+    public int total;
 
-    public JdbcQueryEvent(String name, String group) {
-        super(name, group);
-    }
+    @Label("Idle Connections")
+    public int idle;
+
+    @Label("Active Connections")
+    public int active;
+
+    @Label("Max Connections")
+    public int max;
+
+    @Label("Min Connections")
+    public int min;
+
+    @Label("Pending Threads")
+    public int pendingThreads;
 }

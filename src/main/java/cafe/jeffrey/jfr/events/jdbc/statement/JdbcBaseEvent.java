@@ -16,36 +16,37 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package pbouda.jeffrey.jfr.events.jdbc.pool;
+package cafe.jeffrey.jfr.events.jdbc.statement;
 
 import jdk.jfr.Description;
+import jdk.jfr.Event;
 import jdk.jfr.Label;
-import jdk.jfr.Name;
-import jdk.jfr.Period;
 
-@Name(JdbcPoolStatisticsEvent.NAME)
-@Label("Pool Statistics")
-@Period("1 s")
-@Description("Statistics of the connection pool")
-public class JdbcPoolStatisticsEvent extends JdbcPoolEvent {
+public abstract class JdbcBaseEvent extends Event {
 
-    public static final String NAME = "jeffrey.JdbcPoolStatistics";
+    @Label("SQL Query")
+    @Description("The SQL statement executed by the JDBC statement")
+    public String sql;
 
-    @Label("Total Connections")
-    public int total;
+    @Label("SQL Parameters")
+    public String params;
 
-    @Label("Idle Connections")
-    public int idle;
+    @Label("Statement Name")
+    public String name;
 
-    @Label("Active Connections")
-    public int active;
+    @Label("Label for Statement Grouping")
+    public String group;
 
-    @Label("Max Connections")
-    public int max;
+    @Label("Affected/Returned Rows")
+    @Description("The number of affected/returned rows")
+    public long rows;
 
-    @Label("Min Connections")
-    public int min;
+    @Label("Successful Execution")
+    @Description("SQL Statement ended up successfully")
+    public boolean isSuccess = true;
 
-    @Label("Pending Threads")
-    public int pendingThreads;
+    public JdbcBaseEvent(String name, String group) {
+        this.name = name;
+        this.group = group;
+    }
 }
