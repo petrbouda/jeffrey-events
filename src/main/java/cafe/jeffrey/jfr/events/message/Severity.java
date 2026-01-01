@@ -16,12 +16,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package cafe.jeffrey.jfr.events.log;
+package cafe.jeffrey.jfr.events.message;
 
 public enum Severity {
-    ERROR,
-    WARN,
-    INFO,
-    DEBUG,
-    TRACE
+    CRITICAL,
+    HIGH,
+    MEDIUM,
+    LOW
 }

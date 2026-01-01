@@ -16,40 +16,44 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package cafe.jeffrey.jfr.events.alert;
+package cafe.jeffrey.jfr.events.message;
 
 import jdk.jfr.*;
 
-@Name(AlertEvent.NAME)
-@Label("Alert Event")
-@Description("An alert for monitoring and notification")
-@Category({"Application", "Alert"})
+@Name(ImportantMessageEvent.NAME)
+@Label("Important Message Event")
+@Description("An important message for monitoring and notification")
+@Category({"Application", "Message"})
 @StackTrace(false)
-public class AlertEvent extends Event {
+public class ImportantMessageEvent extends Event {
 
-    public static final String NAME = "jeffrey.Alert";
+    public static final String NAME = "jeffrey.ImportantMessage";
 
     @Label("Type")
-    @Description("Identifier for this type of alert (e.g., HIGH_CPU_USAGE, CONNECTION_POOL_EXHAUSTED)")
+    @Description("Identifier for this type of message (e.g., HIGH_CPU_USAGE, CONNECTION_POOL_EXHAUSTED)")
     public String type;
 
     @Label("Title")
-    @Description("Short summary of the alert")
+    @Description("Short summary of the message")
     public String title;
 
     @Label("Message")
-    @Description("Detailed description of the alert")
+    @Description("Detailed description of the message")
     public String message;
 
     @Label("Severity")
-    @Description("The severity level of the alert")
-    public AlertSeverity severity;
+    @Description("The severity level of the message")
+    public Severity severity;
 
     @Label("Category")
-    @Description("The category of the alert (e.g., PERFORMANCE, SECURITY, RESOURCE, AVAILABILITY)")
+    @Description("The category of the message (e.g., PERFORMANCE, SECURITY, RESOURCE, AVAILABILITY)")
     public String category;
 
     @Label("Source")
-    @Description("The component or service that raised the alert")
+    @Description("The component or service that raised the message")
     public String source;
+
+    @Label("Is Alert")
+    @Description("The message is intended to be processed as an alert")
+    public boolean isAlert;
 }
