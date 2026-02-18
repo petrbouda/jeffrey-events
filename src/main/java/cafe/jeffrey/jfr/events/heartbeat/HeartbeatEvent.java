@@ -31,7 +31,7 @@ import jdk.jfr.StackTrace;
 @Description("Periodic heartbeat for session liveness detection")
 @Category({"Application", "Heartbeat"})
 @StackTrace(false)
-@Period("5 s")
+@Period("1 s")
 public class HeartbeatEvent extends Event {
 
     public static final String NAME = "jeffrey.Heartbeat";
