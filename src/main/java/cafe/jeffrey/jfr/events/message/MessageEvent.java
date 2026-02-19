@@ -20,14 +20,14 @@ package cafe.jeffrey.jfr.events.message;
 
 import jdk.jfr.*;
 
-@Name(ImportantMessageEvent.NAME)
-@Label("Important Message Event")
-@Description("An important message for monitoring and notification")
+@Name(MessageEvent.NAME)
+@Label("Message Event")
+@Description("A platform lifecycle message for monitoring")
 @Category({"Application", "Message"})
 @StackTrace(false)
-public class ImportantMessageEvent extends Event {
+public class MessageEvent extends Event {
 
-    public static final String NAME = "jeffrey.ImportantMessage";
+    public static final String NAME = "jeffrey.Message";
 
     @Label("Type")
     @Description("Identifier for this type of message (e.g., HIGH_CPU_USAGE, CONNECTION_POOL_EXHAUSTED)")
@@ -52,8 +52,4 @@ public class ImportantMessageEvent extends Event {
     @Label("Source")
     @Description("The component or service that raised the message")
     public String source;
-
-    @Label("Is Alert")
-    @Description("The message is intended to be processed as an alert")
-    public boolean isAlert;
 }
