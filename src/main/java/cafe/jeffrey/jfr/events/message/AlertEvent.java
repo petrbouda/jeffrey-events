@@ -25,7 +25,6 @@ import jdk.jfr.*;
 @Description("An alert for critical conditions requiring attention")
 @Category({"Application", "Alert"})
 @StackTrace(false)
-@Enabled(false)
 public class AlertEvent extends Event {
 
     public static final String NAME = "jeffrey.Alert";
