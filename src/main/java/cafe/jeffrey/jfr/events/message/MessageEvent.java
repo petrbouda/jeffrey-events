@@ -25,6 +25,7 @@ import jdk.jfr.*;
 @Description("A platform lifecycle message for monitoring")
 @Category({"Application", "Message"})
 @StackTrace(false)
+@Enabled(false)
 public class MessageEvent extends Event {
 
     public static final String NAME = "jeffrey.Message";
