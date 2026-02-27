@@ -43,7 +43,7 @@ public class AlertEvent extends Event {
 
     @Label("Severity")
     @Description("The severity level of the alert")
-    public Severity severity;
+    public String severity;
 
     @Label("Category")
     @Description("The category of the alert (e.g., PERFORMANCE, SECURITY, RESOURCE, AVAILABILITY)")

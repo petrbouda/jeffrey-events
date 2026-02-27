@@ -43,7 +43,7 @@ public class MessageEvent extends Event {
 
     @Label("Severity")
     @Description("The severity level of the message")
-    public Severity severity;
+    public String severity;
 
     @Label("Category")
     @Description("The category of the message (e.g., PERFORMANCE, SECURITY, RESOURCE, AVAILABILITY)")
